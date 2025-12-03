@@ -1,0 +1,638 @@
+/* ---------------------------------------------------- */
+/* 4. CONFIGURAÇÃO CSS, RESET E TIPOGRAFIA GLOBAL */
+/* ---------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+* {
+  /* Seletor Universal (*) */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Aplicar Box Model - Requisito 71 */
+}
+
+body {
+  font-family: "Roboto", Arial, sans-serif; /* Tipografia - Requisito 54 */
+  line-height: 1.6;
+  background-color: #e8f0fe; /* Cor de fundo - Requisito 60 */
+  color: #333;
+  padding-top: 70px; /* Espaço para o menu fixo */
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 0.8em;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: #001f3f;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #4a86e8; /* Estilização de estados (links) - Requisito 69 */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------------------------------------------------- */
+/* 5. ESTILIZAÇÃO DE CABEÇALHO E NAVEGAÇÃO (Requisito 57, 68) */
+/* ---------------------------------------------------- */
+
+#header {
+  background-color: #001f3f; /* Paleta de Cores - Requisito 58 */
+  color: white;
+  padding: 15px 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: fixed; /* Posicionamento Fixo - Requisito 81 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+#menu ul {
+  list-style: none;
+  display: flex; /* Listas horizontais - Requisito 68 */
+}
+
+#menu ul li {
+  margin-left: 25px;
+}
+
+#menu a {
+  color: white;
+  font-weight: 400;
+  padding: 5px 10px;
+}
+
+#menu a:hover {
+  color: #87ceeb;
+}
+
+/* ---------------------------------------------------- */
+/* 6. LAYOUT PRINCIPAL E GRID DE NOTÍCIAS */
+/* ---------------------------------------------------- */
+
+main {
+  margin-top: 70px;
+  /* margin: 20px auto; */
+  padding: 0 20px;
+}
+
+/* Ajustes para a HOME PAGE (index.html) */
+
+.page-home main {
+  display: block;
+  max-width: 900px;
+  padding: 20px;
+}
+
+/* Estilo do Card de Destaque da HOME (igual ao Figma) */
+.noticias-destaque {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin: 30px auto;
+}
+
+.noticias-destaque h2 {
+  font-size: 1.8em;
+  color: #001f3f;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.hero-noticia h3 {
+  font-size: 1.5em;
+  color: #001f3f;
+  margin-bottom: 15px;
+}
+.hero-noticia img {
+  margin-bottom: 15px;
+  border-radius: 5px;
+  width: 250px;
+  float: left; /* Adicionando float para a imagem ficar ao lado do texto, se houver espaço */
+  margin-right: 20px;
+}
+.hero-noticia::after {
+  /* Limpa o float */
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Estilo para o botão Leia Mais */
+.hero-noticia .leia-mais-btn {
+  display: inline-block;
+  background-color: #4a86e8;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+.hero-noticia .leia-mais-btn:hover {
+  background-color: #001f3f;
+}
+
+/* Ajuste para a Página MUNDO (mundo.html) */
+
+.page-mundo main {
+  display: block;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.page-mundo .grid-noticias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Força 3 colunas para tela cheia */
+  gap: 25px;
+}
+
+.card-noticia {
+  /* Estilo do Card de Notícia */
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.card-noticia img {
+  border-radius: 5px;
+  margin-bottom: 15px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* ---------------------------------------------------- */
+/* ESTILIZAÇÃO DO ARTIGO COMPLETO (noticia_detalhe.html) */
+/* ---------------------------------------------------- */
+
+.artigo-completo {
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.artigo-completo h1 {
+  font-size: 2.2em;
+  border-bottom: 3px solid #001f3f;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #001f3f;
+}
+
+/* Formatação de texto (strong, em, sub, sup) - Requisito 25, 53 */
+.artigo-completo p {
+  margin-bottom: 1.5em;
+  text-align: justify;
+}
+.artigo-completo strong {
+  font-weight: 700;
+  color: #4a86e8;
+}
+.artigo-completo em {
+  font-style: italic;
+  color: #333;
+}
+.artigo-completo sub,
+.artigo-completo sup {
+  font-size: 0.7em;
+}
+
+/* Estilização de Lista de Definição (Glossário) - Requisito 28 */
+.glossario {
+  margin-top: 30px;
+  padding: 15px;
+  border: 1px dashed #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+.glossario dt {
+  font-weight: 700;
+  color: #001f3f;
+  margin-top: 10px;
+}
+.glossario dd {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+/* ---------------------------------------------------- */
+/* ESTILIZAÇÃO DO FORMULÁRIO (CONTATO.HTML) */
+/* ---------------------------------------------------- */
+
+.formulario-contato {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-contato fieldset {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+}
+
+.formulario-contato legend {
+  padding: 0 10px;
+  font-weight: 700;
+  color: #4a86e8;
+}
+
+.formulario-contato div {
+  margin-bottom: 15px;
+}
+
+.formulario-contato label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
+.formulario-contato input[type="text"],
+.formulario-contato input[type="email"],
+.formulario-contato input[type="tel"],
+.formulario-contato select,
+.formulario-contato textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+.formulario-contato input:focus,
+.formulario-contato textarea:focus {
+  border-color: #4a86e8;
+  outline: none;
+}
+
+.btn {
+  /* Seletor de Classe (.btn) */
+  background-color: #001f3f;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #4a86e8;
+}
+
+/* ---------------------------------------------------- */
+/* AJUSTES E ESTILIZAÇÃO PARA A PÁGINA MUNDO (mundo.html) */
+/* ---------------------------------------------------- */
+
+.page-mundo main {
+  display: block;
+  max-width: 1200px;
+  margin: 20px auto; /* Centraliza o conteúdo */
+  padding: 20px;
+}
+
+.page-mundo h2 {
+  font-size: 2em;
+  color: #001f3f;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.grid-noticias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais - Requisito 81 */
+  gap: 25px;
+}
+
+.card-noticia {
+  /* Estilo do Card Individual - Requisito 50, 72 */
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px; /* Arredondamento */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  overflow: hidden;
+  transition: transform 0.3s;
+  text-align: left;
+}
+
+.card-noticia:hover {
+  /* Efeito de hover - Requisito 69 */
+  transform: translateY(-5px); /* Efeito de elevação */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-noticia img {
+  /* Estilização da Imagem no Card */
+  border-radius: 5px;
+  margin-bottom: 15px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+}
+
+.card-noticia h3 {
+  font-size: 1.2em;
+  color: #001f3f;
+  margin-bottom: 10px;
+}
+
+.card-noticia p {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.card-noticia a {
+  color: #4a86e8;
+  font-weight: 700;
+}
+/* ---------------------------------------------------- */
+/* ESTILO DE CARD DENTRO DA SIDEBAR */
+/* ---------------------------------------------------- */
+
+.sidebar-card {
+  background-color: white; /* Fundo branco do card */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 1px rgba(0, 0, 0, 0.08); /* Sombra suave */
+  margin-bottom: 25px; /* Espaçamento entre os cards da sidebar */
+}
+
+/* Reajustando títulos dentro do card para ficarem em cima */
+.sidebar-card h3 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 8px;
+  margin-top: 0; /* Remove a margem superior indesejada */
+}
+
+/* Reajustando listas dentro do card */
+.sidebar-card ul.lista-categorias,
+.sidebar-card ol.lista-lidas {
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------- */
+/* AJUSTES FINAIS E PSEUDO-CLASSES (REQUISITOS DA SPRINT) */
+/* ---------------------------------------------------- */
+
+/* 1. Tabela (usando :nth-child) */
+/* Removendo a borda do HTML e aplicando via CSS */
+.dados-tabela table,
+.horario-atendimento table {
+  width: 100%;
+  border-collapse: collapse; /* Tira bordas duplas */
+  margin-top: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Efeito de profundidade */
+  border-radius: 8px; /* Arredondamento */
+  overflow: hidden; /* Garante que o border-radius funcione com as bordas da tabela */
+}
+
+.dados-tabela th,
+.dados-tabela td,
+.horario-atendimento th,
+.horario-atendimento td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+.dados-tabela thead th,
+.horario-atendimento thead th {
+  background-color: #001f3f;
+  color: white;
+  font-weight: 700;
+}
+
+/* Aplicação do :nth-child para zebra-striping (linhas alternadas) */
+.dados-tabela tbody tr:nth-child(even),
+.horario-atendimento tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Cor mais clara */
+}
+
+.dados-tabela tbody tr:hover,
+.horario-atendimento tbody tr:hover {
+  background-color: #e0eaff; /* Efeito de hover na linha da tabela */
+}
+
+/* Estilizando o último item (tfoot) */
+.dados-tabela tfoot td,
+.horario-atendimento tfoot td {
+  background-color: #001f3f;
+  color: white;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+/* 2. Efeito de Transform em Botão */
+/* Adicionando o efeito no botão de envio (já possui o hover) */
+.btn:hover {
+  background-color: #4a86e8;
+  transform: scale(1.02); /* Transforma: scale (aumenta 2%) */
+}
+
+/* 3. Estilização do :focus em Inputs (já existe uma boa base, vamos aprimorar com box-shadow) */
+.formulario-contato input:focus,
+.formulario-contato textarea:focus {
+  border-color: #4a86e8;
+  outline: none;
+  /* Box-shadow para destaque no focus */
+  box-shadow: 0 0 5px rgba(74, 134, 232, 0.5);
+}
+
+/* ---------------------------------------------------- */
+/* MEDIA QUERIES PARA RESPONSIVIDADE (SPRINT OBJETIVO) */
+/* ---------------------------------------------------- */
+
+/* Breakpoint para dispositivos com largura máxima de 768px (Tablets e Mobile) */
+@media (max-width: 768px) {
+  /* 1. Header e Menu */
+  #header {
+    padding: 15px 20px; /* Reduz o padding lateral do header */
+  }
+
+  #menu {
+    /* Esconde o menu por padrão (para ser exibido via JS/Checkbox) */
+    display: none;
+    position: absolute;
+    top: 65px; /* Abaixo do header */
+    left: 0;
+    width: 100%;
+    background-color: #001f3f;
+    z-index: 999;
+  }
+
+  #menu ul {
+    flex-direction: column; /* Coloca os itens na vertical */
+    padding: 10px 0;
+  }
+
+  #menu ul li {
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  #menu a {
+    display: block;
+    padding: 15px 20px;
+  }
+
+  /* Nota: Para o menu 'hambúrguer' funcionar, seria necessário um ícone e JavaScript, 
+    ou a técnica CSS-only com checkbox, que podemos adicionar depois de você confirmar
+    esta estrutura básica! */
+
+  /* 2. Layout da Página MUNDO (Grid de 3 para 1 coluna) */
+  .page-mundo .grid-noticias {
+    grid-template-columns: 1fr; /* Muda para 1 coluna em mobile */
+  }
+
+  /* 3. Layout da Página HOME (Destaque e Sidebar) */
+  /* Se você for implementar uma sidebar na home, defina aqui o layout vertical */
+  .noticias-destaque {
+    padding: 20px;
+  }
+
+  .hero-noticia img {
+    float: none; /* Remove o float da imagem */
+    margin-right: 0;
+    margin-bottom: 15px;
+    width: 100%; /* Ocupa a largura total */
+    height: auto;
+  }
+
+  /* 4. Layout do Artigo Completo e Contato */
+  .artigo-completo,
+  .formulario-contato {
+    margin: 20px auto;
+    padding: 15px;
+  }
+}
+
+/* ---------------------------------------------------- */
+/* MENU HAMBÚRGUER (CSS-ONLY) */
+/* ---------------------------------------------------- */
+
+/* Esconde o checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* Estiliza e posiciona o ícone */
+.menu-hamburguer {
+  display: none; /* Escondido por padrão (somente mobile) */
+  font-size: 2em;
+  cursor: pointer;
+  order: 3; /* Coloca o ícone depois do título no flex container */
+}
+
+/* Regra para MOSTRAR o ícone somente em telas pequenas */
+@media (max-width: 768px) {
+  .menu-hamburguer {
+    display: block; /* Mostra o ícone no mobile */
+    color: white;
+  }
+
+  /* Esta é a mágica do CSS-ONLY: 
+       Quando o checkbox é Clicado/Checado, o seletor `~` (irmão subsequente) 
+       mostra o menu. */
+  #menu-toggle:checked ~ #menu {
+    display: flex; /* Altera de 'display: none' para 'display: flex' */
+  }
+}
+
+/* ---------------------------------------------------- */
+/* AJUSTE FINAL: LAYOUT HOME PAGE (INDEX.HTML) */
+/* ---------------------------------------------------- */
+
+.page-home main {
+  display: block;
+  max-width: 1200px;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+.sidebar-home {
+  max-width: 1000px; /* Largura máxima para centralizar o bloco de conteúdo */
+  margin: 40px auto; /* Centraliza o aside na página */
+  padding: 0 20px;
+}
+
+/* 1. AGORA USAMOS FLEXBOX PARA AS LISTAS */
+.listas-agrupadas {
+  display: flex; /* Coloca as listas lado a lado */
+  gap: 30px;
+  margin-bottom: 30px; /* Espaço entre as listas e o vídeo */
+}
+
+/* Os cards de lista dentro do agrupamento */
+.sidebar-card {
+  flex: 1; /* Faz os dois cards dividirem o espaço igualmente (50/50) */
+  min-width: 250px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. ESTILIZAÇÃO DO VÍDEO (Centralizado ABAIXO das listas) */
+
+.video-destaque {
+  /* Garante que o vídeo ocupe toda a largura disponível na linha (porque ele está sozinho) */
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  /* Centraliza o conteúdo (iframe) */
+  text-align: center;
+}
+
+.video-destaque iframe {
+  max-width: 100%; /* Torna o iframe responsivo */
+  height: auto;
+}
+
+/* ---------------------------------------------------- */
+/* RESPONSIVIDADE (Dentro da sua @media (max-width: 768px) {}) */
+/* ---------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .listas-agrupadas {
+    flex-direction: column; /* Em mobile, empilha as listas */
+    gap: 20px;
+  }
+}

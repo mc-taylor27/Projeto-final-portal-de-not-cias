@@ -1,49 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Notícias</title> <link rel="stylesheet" href="css/style.css"> </head>
-<body>
-    
-    <header>
-        <h1>Portal de Notícias</h1>
-        
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="noticia.html">Mundo</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
-        </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profeta Diário | Início</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="header">
+      <h1>Profeta Diário</h1>
+
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-hamburguer">&#9776;</label>
+
+      <nav id="menu">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="mundo.html">Mundo</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
     </header>
-
     <main>
-        <section class="noticias-destaque">
-            <h2>Últimas Notícias</h2>
-            <article>
-                <h3>Título da Notícia de Destaque</h3>
-                <p>Resumo da notícia...</p>
-            </article>
-        </section>
-
-        <section class="grid-noticias">
-            <h2>Mais Lidas</h2>
-            <article>...</article>
-            <article>...</article>
-            <article>...</article>
-        </section>
-
-        <aside>
-            <h3>Anúncio / Populares</h3>
-        </aside>
+      <section class="noticias-destaque">
+        <h2>Últimas notícias</h2>
+        <figure>
+          <img
+            src="https://www.estadao.com.br/resizer/v2/TXNFOUONCFDMVLPYS5LZAC7TNM.jpg?quality=80&auth=4130ee92507be254705847431f46f580077edf217edd9057e76943bb530b09d9&width=1200&height=675&smart=true"
+            alt="Imagem ilustrativa de combate à violência"
+            title="Violência na Amazônia"
+            width="100%"
+            height="auto"
+          />
+          <figcaption>Foto: Reportagem/Profeta Diário</figcaption>
+        </figure>
+        <article class="hero-noticia">
+          <h3>
+            Estupros crescem na Amazônia, e facções submetem mulheres a normas
+            de comportamento, diz Fórum Brasileiro de Segurança Pública
+          </h3>
+          <p>
+            Aumento foi de 4% de 2023 para 2024 nos nove estados que compõem a
+            região. Facções aumentam presença e passam a controlar até
+            relacionamentos de mulheres ligadas ou não ao crime organizado.
+          </p>
+          <a href="noticia_detalhe.html">Leia mais</a>
+        </article>
+      </section>
     </main>
 
-    <footer>
-        <nav class="links-uteis">
-            </nav>
-        <p>&copy; 2025 Portal de Notícias. Todos os direitos reservados.</p>
-    </footer>
+    <aside class="sidebar-home">
+      <div class="sidebar-card">
+        <h3>Categorias</h3>
+        <ul class="lista-categorias">
+          <li><a href="#">Política</a></li>
+          <li><a href="#">Economia</a></li>
+          <li><a href="#">Ciência e Tecnologia</a></li>
+          <li><a href="#">Internacional</a></li>
+        </ul>
+      </div>
 
-</body>
+      <div class="sidebar-card">
+        <h3>Notícias Mais Lidas</h3>
+        <ol class="lista-lidas">
+          <li>
+            <a href="noticia_detalhe.html">Estupros crescem na Amazônia...</a>
+          </li>
+          <li>
+            <a href="mundo.html">Chanceler alemão não vai se desculpar...</a>
+          </li>
+          <li><a href="mundo.html">IA Revolucionária na Saúde...</a></li>
+        </ol>
+      </div>
+      <h3>Vídeo em Destaque</h3>
+      <article class="video-destaque">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/x-xVs8ZgfJs?si=aHcoRfadO_mRIK7S&amp;start=1"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </article>
+    </aside>
+
+    <footer>
+      <nav class="links-uteis"></nav>
+      <p>&copy; 2025 Profeta Diário. Todos os direitos reservados.</p>
+    </footer>
+  </body>
 </html>
